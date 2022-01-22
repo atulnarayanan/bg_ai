@@ -4,7 +4,7 @@ from rest_framework.parsers import MultiPartParser, JSONParser, FormParser
 
 from bg_ai import serializer
 from bg_ai.models import Image
-from bg_ai.function import function
+from bg_ai.function import removebg
 
 class UploadAPI(generics.ListCreateAPIView):
     parser_classes = [MultiPartParser, JSONParser, FormParser]
@@ -27,6 +27,6 @@ class ProcessAPI(generics.RetrieveAPIView):
         image = Image.objects.get(id=image_id)
         print(image.uploaded_image.path)
         print(image.uploaded_image.name.split('source/')[1])
-        # processed_image = function(image.uploaded_image.path)
+        processed_image = removebg(image.uploaded_image.name.split('source/')[1], img_path=image.uploaded_image.path)
         # image.processed_image.save()
         return super().retrieve(request, *args, **kwargs)
