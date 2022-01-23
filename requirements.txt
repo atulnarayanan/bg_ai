@@ -1,3 +1,10 @@
 Django
 djangorestframework
 Pillow
+opencv-python
+imutils
+scikit-image
+torch 
+torchvision 
+torchaudio
+matplotlib

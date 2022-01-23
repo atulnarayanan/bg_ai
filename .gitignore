@@ -6,3 +6,6 @@ __pycache__
 db.sqlite3
 media
 env/
+files/
+bg_ai/output/masks/
+bg_ai/output/transposed/
